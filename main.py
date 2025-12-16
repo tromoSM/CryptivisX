@@ -9,7 +9,7 @@ def dihtouch():
     return render_template('index.html')
 class nih():
     def sybau(self,data):
-        return "nigga from python"
+        return "test"
     def min(self,data):
         webfucker3000.windows[0].minimize()
     def max(self,data):
@@ -42,7 +42,7 @@ def pr():
     return send_file(imim)
 if __name__=="__main__":
     fuhnihs=webfucker3000.create_window(
-    'CryptivisX',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,transparent=True,background_color="#000000",shadow=True 
+    'FUCK NIGGERS',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,transparent=True,background_color="#000000",shadow=True 
     )
     webfucker3000.start(debug=True)
 
