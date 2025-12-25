@@ -1,7 +1,11 @@
+import segno as diddyblud
+import time as letme
+import random as diddybluds
+import string as diddybIuds
 import webview as webfucker3000
 import os as abspath
 from flask import render_template,Flask,send_file,request
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet,InvalidToken
 
 encodeSHIT=Flask(__name__)
 @encodeSHIT.route('/')
@@ -25,27 +29,83 @@ class nih():
             return None
         self.imim_path=f[0]
         return self.imim_path
-    def mainE(self,data):
+    def retrf(self,_=None):
+        f=webfucker3000.windows[0].create_file_dialog(
+        webfucker3000.OPEN_DIALOG,allow_multiple=False,file_types=['All supported formats(*.png;*.jpg;*.jpeg;*.webp;*.bmp;*.mp4;*.mov;*.avi;*.mkv;*.webm)','Images (*.png;*.jpg;*.jpeg;*.webp;*.bmp)','Videos (*.mp4;*.mov;*.avi;*.mkv;*.webm)',])
+        if not f:
+            return None
+        self.imim_repath=f[0]
+        return self.imim_repath
+    def mainI(self,data=None):
+        if not hasattr(self,"imim_path") or not self.imim_path:
+            return "no info"
+        self.meta=abspath.stat(self.imim_path)
+        self.imim_info=[
+            abspath.path.basename(self.imim_path),#filename nbo path
+            self.imim_path,#full path with filename
+            round(abspath.path.getsize(self.imim_path)/(1024*1024),2) #mb 0.00
+            ]
+        return self.imim_info
+    def mainE(self,data=None):
         if not hasattr(self,"imim_path") or not self.imim_path:
           return "sybau gng"
         hashdihh=Fernet.generate_key() 
         uia=Fernet(hashdihh)
-        with open(self.imim_data,"rb")as dihfile:
+        uiaa=hashdihh.decode()
+        yoyo=''.join(diddybluds.choices(diddybIuds.ascii_letters+diddybIuds.digits,k=21))
+        yoyO=yoyo+hashdihh.decode()
+        with open(self.imim_path,"rb")as dihfile:
             imim_data=dihfile.read()
         llkv=uia.encrypt(imim_data)
-        with open(self.imim_data,"wb")as dihfile:
+        imim_last=abspath.path.join(abspath.path.dirname(self.imim_path),"[encrypted by CryptivisX]"+abspath.path.basename(self.imim_path))
+        with open(imim_last,"wb")as dihfile:
          dihfile.write(llkv)
-        return hashdihh.decode()
+        try:
+            abspath.remove(self.imim_path)
+        except PermissionError:
+            letme.sleep(2)
+            
+        kyq=diddyblud.make_qr(yoyO)
+        kyq.to_artistic(background=f"{abspath.path.abspath("./static/webassets/")}/qr.gif",target=f"{abspath.path.abspath("./static/webassets/temp/")}/tempQR.gif",scale=6.7,)
+        return yoyO
+    def retrJS(self,tx):
+        print(f'{tx}')
+        self.usrrK=tx
+    def sdiybt(self,data=None):
+        print('sdiybt')
+    def mainD(self,data=None):
+        if not hasattr(self,"imim_repath"):
+            return "no file gng"
+        if not hasattr(self,"usrrK"):
+          return "sybau gng"
+        print(f'KEY {self.usrrK}',flush=True)
+        usrK_non=self.usrrK.strip()[21:].encode()
+        fs=Fernet(usrK_non)
+        with open(self.imim_repath,"rb")as dihfile:
+            imim_data=dihfile.read()
+        try:
+            imim_inside=fs.decrypt(imim_data)   
+        except InvalidToken:
+         print('INVALID KEY ERROR')
+         return "Invalid key. Please try a different key."    
+        imim_last=abspath.path.join(abspath.path.dirname(self.imim_repath),abspath.path.basename(self.imim_repath).replace("[encrypted by CryptivisX]",""))
+        with open(imim_last,"wb")as dihfile:
+         dihfile.write(imim_inside)
+        try:
+            abspath.remove(self.imim_repath)
+            print('SUCCESS - DE')
+        except PermissionError:
+            letme.sleep(2)
+            return "Permission Error attempting to retry"
+        except:
+            print("ERROR PERSMISSION ERROR")
+            return "Permission Error retrying attempt failed."
 @encodeSHIT.route('/imim-preview')
 def pr():
     imim=request.args.get('path')
     return send_file(imim)
 if __name__=="__main__":
     fuhnihs=webfucker3000.create_window(
-    'FUCK NIGGERS',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,transparent=True,background_color="#000000",shadow=True 
+    'CryptivisX',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,background_color="#000000",shadow=True,easy_drag=False 
     )
-    webfucker3000.start(debug=True)
-
-import segno as diddyblud
-kyq=diddyblud.make_qr("tromoSM")
-kyq.to_artistic(background=f"{abspath.path.abspath("./static/webassets/")}/qr.gif",target=f"{abspath.path.abspath("./static/webassets/temp/")}/tempQR.gif",scale=6.7,)
+    webfucker3000.start(debug=True,private_mode=False,gui="edgechromium",http_server=True,args=["--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon="static/yo.webp")
