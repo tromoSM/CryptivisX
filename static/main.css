@@ -21,9 +21,11 @@
     overflow: hidden;
 }
 [title="icon"]{
-    height:28px;
+    height:20px;
+    filter: drop-shadow(0px 0px 1px black);
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    margin: 0px 5px;
 
 }
 [tromoSM=flex-wr-pos-ab-l]{
@@ -462,7 +464,7 @@ transform: scale(1);
     width: 400px;
     height: 250px;
     display: flex;
-    z-index: +99;
+    z-index: 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
