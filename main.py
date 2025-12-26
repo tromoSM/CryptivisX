@@ -120,9 +120,10 @@ if __name__=="__main__":
     fuhnihs=webfucker3000.create_window(
     'CryptivisX',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,background_color="#000000",shadow=True,easy_drag=False 
     )
-    webfucker3000.start(debug=True,private_mode=False,gui="edgechromium",http_server=True,args=["--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon=rpath("static/yo.webp"))
     try:
      import pyi_splash
      pyi_splash.close()
     except:
      pass
+    webfucker3000.start(private_mode=False,gui="edgechromium",http_server=True,args=["--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon=rpath("static/yo.webp"))
+
