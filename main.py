@@ -51,9 +51,9 @@ class nih():
             return "no info"
         self.meta=abspath.stat(self.imim_path)
         self.imim_info=[
-            abspath.path.basename(self.imim_path),#filename nbo path
-            self.imim_path,#full path with filename
-            round(abspath.path.getsize(self.imim_path)/(1024*1024),2) #mb 0.00
+            abspath.path.basename(self.imim_path),
+            self.imim_path,
+            round(abspath.path.getsize(self.imim_path)/(1024*1024),2) 
             ]
         return self.imim_info
     def mainE(self,data=None):
@@ -118,12 +118,12 @@ def pr():
     return send_file(abspath.path.abspath(imim))
 if __name__=="__main__":
     fuhnihs=webfucker3000.create_window(
-    'CryptivisX',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,background_color="#000000",shadow=True,easy_drag=False 
+    'CryptivisX',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,background_color="#000000",shadow=True,easy_drag=False
     )
     try:
      import pyi_splash
      pyi_splash.close()
     except:
      pass
-    webfucker3000.start(private_mode=False,gui="edgechromium",http_server=True,args=["--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon=rpath("static/yo.webp"))
+    webfucker3000.start(private_mode=False,gui="edgechromium",http_server=False,args=["--user-data-dir="+str(APPDATA / "webview"),"--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon=rpath("static/yo.webp"))
 
