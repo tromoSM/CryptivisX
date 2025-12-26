@@ -1,3 +1,6 @@
+import shutil as dihsuc
+import sys as johnpork
+from pathlib import Path as wishIKnew
 import segno as diddyblud
 import time as letme
 import random as diddybluds
@@ -7,6 +10,13 @@ import os as abspath
 from flask import render_template,Flask,send_file,request
 from cryptography.fernet import Fernet,InvalidToken
 
+def rpath(r):
+    if hasattr(johnpork,"_MEIPASS"):
+        return abspath.path.join(johnpork._MEIPASS,r)
+    return abspath.path.join(abspath.path.abspath('.'),r)
+base=abspath.getenv("APPDATA")or abspath.path.expanduser('~')
+APPDATA=wishIKnew(base)/"CryptivisX"
+APPDATA.mkdir(exist_ok=True)
 encodeSHIT=Flask(__name__)
 @encodeSHIT.route('/')
 def dihtouch():
@@ -57,7 +67,7 @@ class nih():
         with open(self.imim_path,"rb")as dihfile:
             imim_data=dihfile.read()
         llkv=uia.encrypt(imim_data)
-        imim_last=abspath.path.join(abspath.path.dirname(self.imim_path),"[encrypted by CryptivisX]"+abspath.path.basename(self.imim_path))
+        imim_last=APPDATA/('[encrypted by CryptivisX]'+abspath.path.basename(self.imim_path))
         with open(imim_last,"wb")as dihfile:
          dihfile.write(llkv)
         try:
@@ -66,8 +76,10 @@ class nih():
             letme.sleep(2)
             
         kyq=diddyblud.make_qr(yoyO)
-        kyq.to_artistic(background=f"{abspath.path.abspath("./static/webassets/")}/qr.gif",target=f"{abspath.path.abspath("./static/webassets/temp/")}/tempQR.gif",scale=6.7,)
+        kyq.save(abspath.path.join(APPDATA,"tempQR.svg"),scale=6.7)
+        dihsuc.copy(APPDATA/"tempQR.svg",rpath("static/tempQR.svg"))
         return yoyO
+
     def retrJS(self,tx):
         print(f'{tx}')
         self.usrrK=tx
@@ -88,7 +100,7 @@ class nih():
         except InvalidToken:
          print('INVALID KEY ERROR')
          return "Invalid key. Please try a different key."    
-        imim_last=abspath.path.join(abspath.path.dirname(self.imim_repath),abspath.path.basename(self.imim_repath).replace("[encrypted by CryptivisX]",""))
+        imim_last=APPDATA/abspath.path.basename(self.imim_repath).replace("[encrypted by CryptivisX]","")
         with open(imim_last,"wb")as dihfile:
          dihfile.write(imim_inside)
         try:
@@ -103,9 +115,14 @@ class nih():
 @encodeSHIT.route('/imim-preview')
 def pr():
     imim=request.args.get('path')
-    return send_file(imim)
+    return send_file(abspath.path.abspath(imim))
 if __name__=="__main__":
     fuhnihs=webfucker3000.create_window(
     'CryptivisX',encodeSHIT,js_api=nih(),width=911,height=607,frameless=True,resizable=True,background_color="#000000",shadow=True,easy_drag=False 
     )
-    webfucker3000.start(debug=True,private_mode=False,gui="edgechromium",http_server=True,args=["--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon="static/yo.webp")
+    webfucker3000.start(debug=True,private_mode=False,gui="edgechromium",http_server=True,args=["--disable-feature=msEdgeDevTools","--disable-popup-blocking","--disable-infobars","--autoplay-policy=no-user-gesture-required"],icon=rpath("static/yo.webp"))
+    try:
+     import pyi_splash
+     pyi_splash.close()
+    except:
+     pass
