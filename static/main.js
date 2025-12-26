@@ -209,7 +209,7 @@ document.querySelector(`[tromoSM=input-io-en]`).addEventListener('click',async f
       })
       document.querySelectorAll(`[updateAFTER="encrypt"]`).forEach(yo=>{
       yo.style.display="flex"
-      document.querySelector(`[tromoSM=qr-fill-each-refresh]`).src=`static/webassets/temp/tempQR.gif?v=${Date.now()}`
+      document.querySelector(`[tromoSM=qr-fill-each-refresh]`).src=`static/tempQR.svg?v=${Date.now()}`
    })
 }
    
