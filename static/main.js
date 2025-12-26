@@ -1,5 +1,65 @@
 window.addEventListener("DOMContentLoaded",function(){
-   document.querySelector(`[tromoSM=flex-full-backdrop-event]`).addEventListener('click',function(){
+let audio$voulume
+if(localStorage.getItem("options-audio-volume")){
+audio$voulume=localStorage.getItem("options-audio-volume")
+}
+else{audio$voulume=0.7}
+  const orgAud=this.window.Audio
+  window.Audio=function(...args){
+  const audio=new orgAud(...args)
+  audio.volume=audio$voulume
+  return audio
+}
+if(localStorage.getItem("option-theme")){
+ if(localStorage.getItem('option-theme')=="dark"){
+    document.documentElement.setAttribute("data-yo");
+    document.querySelector(`[toggle=appearence]`).setAttribute('selectedtoggle','true')
+}
+else{
+    document.documentElement.removeAttribute("data-yo");
+    document.querySelector(`[toggle=appearence]`).setAttribute('selectedtoggle','false')
+}
+}
+
+document.querySelectorAll(`[setting]`).forEach(yo=>{
+   let yoo=yo.getAttribute("setting")
+   let te=document.createElement('p')
+   yo.appendChild(te)
+   let yooo=document.createElement('div')
+   yooo.setAttribute("tromoSM",'toggle$0')
+   yooo.setAttribute('toggle',yoo)
+   let yoooo=document.createElement("div")
+   yoooo.setAttribute("tromoSM",'toggle$inside')
+   yooo.appendChild(yoooo)
+   yo.appendChild(yooo)
+   if(yoo=="appearence"){
+   te.innerHTML="Dark mode"
+   te.setAttribute('tr-refresh','ascii')
+   }
+   te.addEventListener('click',function(){
+      if(yoo=="appearence"){
+         document.documentElement.toggleAttribute("data-yo");
+      }
+   })
+   
+})
+document.querySelectorAll(`[tromoSM='toggle$0']`).forEach(yo=>{
+   yo.addEventListener('click',function(){
+   if(yo.getAttribute('selectedtoggle')=='true'){
+      yo.setAttribute('selectedtoggle','false')
+      yo.closest('[setting]').querySelector('[tr-refresh=ascii]').click()
+      localStorage.setItem("option-theme",'light')
+      
+   }
+   else{
+      yo.setAttribute('selectedtoggle','true')
+      yo.closest('[setting]').querySelector('[tr-refresh=ascii]').click()
+      localStorage.setItem("option-theme",'dark')
+   }
+   })
+})
+
+document.querySelector(`[tromoSM=flex-full-backdrop-event]`).addEventListener('click',function(){
       document.querySelector(`[tromoSM="flex-full-backdrop"]`).style.display="none"
    })
    window.addEventListener('keydown',function(dih){
@@ -229,6 +289,8 @@ document.querySelector(`[tromoSM=input-io-en]`).addEventListener('click',async f
    imim$NOTIFF$small.appendChild(imim$NOTIFF$small$inside)
    document.body.appendChild(imim$NOTIFF$small)
    imim$NOTIFF$small$inside.innerHTML=`<svg viewBox="0 0 47 52" direction="ltr" xmlns="http://www.w3.org/2000/svg" version="1.1"><g fill-rule="nonzero" transform="scale(1,-1) translate(0,-52.958984375)"><path fill="white" stroke="white" fill-opacity="1.0" d="     M 23.955078125,5.779296875     C 24.470703125,5.779296875 25.0078125,6.05859375 25.373046875,6.2734375     C 37.0390625,13.470703125 40.541015625,15.533203125 40.541015625,22.04296875     L 40.541015625,38.15625     C 40.541015625,40.541015625 39.9609375,41.3359375 37.662109375,42.216796875     C 33.55859375,43.763671875 29.60546875,45.41796875 25.501953125,46.857421875     C 24.943359375,47.05078125 24.4921875,47.1796875 23.955078125,47.1796875     C 23.439453125,47.1796875 22.98828125,47.05078125 22.4296875,46.857421875     C 18.34765625,45.310546875 14.3515625,43.763671875 10.26953125,42.216796875     C 7.970703125,41.37890625 7.390625,40.541015625 7.390625,38.15625     L 7.390625,22.04296875     C 7.390625,15.533203125 11.0,13.62109375 22.55859375,6.2734375     C 22.923828125,6.05859375 23.4609375,5.779296875 23.955078125,5.779296875     Z     M 16.091796875,19.228515625     L 16.091796875,28.294921875     C 16.091796875,30.078125 16.88671875,30.8515625 18.51953125,30.8515625     L 18.51953125,34.07421875     C 18.51953125,37.533203125 20.7109375,39.83203125 23.955078125,39.83203125     C 27.220703125,39.83203125 29.412109375,37.533203125 29.412109375,34.07421875     L 29.412109375,30.8515625     C 31.044921875,30.8515625 31.83984375,30.078125 31.83984375,28.294921875     L 31.83984375,19.228515625     C 31.83984375,17.4453125 31.044921875,16.671875 29.43359375,16.671875     L 18.498046875,16.671875     C 16.88671875,16.671875 16.091796875,17.4453125 16.091796875,19.228515625     Z     M 19.59375,30.8515625     L 28.337890625,30.8515625     L 28.337890625,34.052734375     C 28.337890625,36.888671875 26.576171875,38.7578125 23.955078125,38.7578125     C 21.35546875,38.7578125 19.59375,36.888671875 19.59375,34.052734375     Z " stroke-width="0.1"/></g></svg>encryption successful`
+   notiff$osund=new Audio(`static/pulse.mp3`)
+   notiff$osund.play()
    await sleep(2100)
       alert(ngg)
    imim$NOTIFF$small.remove()
@@ -243,6 +305,8 @@ document.querySelector(`[tromoSM=input-io-en]`).addEventListener('click',async f
    imim$NOTIFF$small$inside.style.color="#ff3535"
    document.body.appendChild(imim$NOTIFF$small)
    imim$NOTIFF$small$inside.innerHTML=`<svg viewBox="0 0 47 52" direction="ltr" xmlns="http://www.w3.org/2000/svg" version="1.1"><g fill-rule="nonzero" transform="scale(1,-1) translate(0,-52.958984375)"><path fill="#ff3535" stroke="#ff3535" fill-opacity="1.0" d="     M 23.955078125,5.779296875     C 24.470703125,5.779296875 25.0078125,6.05859375 25.373046875,6.2734375     C 37.0390625,13.470703125 40.541015625,15.533203125 40.541015625,22.04296875     L 40.541015625,38.15625     C 40.541015625,40.541015625 39.9609375,41.3359375 37.662109375,42.216796875     C 33.55859375,43.763671875 29.60546875,45.41796875 25.501953125,46.857421875     C 24.943359375,47.05078125 24.4921875,47.1796875 23.955078125,47.1796875     C 23.439453125,47.1796875 22.98828125,47.05078125 22.4296875,46.857421875     C 18.34765625,45.310546875 14.3515625,43.763671875 10.26953125,42.216796875     C 7.970703125,41.37890625 7.390625,40.541015625 7.390625,38.15625     L 7.390625,22.04296875     C 7.390625,15.533203125 11.0,13.62109375 22.55859375,6.2734375     C 22.923828125,6.05859375 23.4609375,5.779296875 23.955078125,5.779296875     Z     M 16.091796875,19.228515625     L 16.091796875,28.294921875     C 16.091796875,30.078125 16.88671875,30.8515625 18.51953125,30.8515625     L 18.51953125,34.07421875     C 18.51953125,37.533203125 20.7109375,39.83203125 23.955078125,39.83203125     C 27.220703125,39.83203125 29.412109375,37.533203125 29.412109375,34.07421875     L 29.412109375,30.8515625     C 31.044921875,30.8515625 31.83984375,30.078125 31.83984375,28.294921875     L 31.83984375,19.228515625     C 31.83984375,17.4453125 31.044921875,16.671875 29.43359375,16.671875     L 18.498046875,16.671875     C 16.88671875,16.671875 16.091796875,17.4453125 16.091796875,19.228515625     Z     M 19.59375,30.8515625     L 28.337890625,30.8515625     L 28.337890625,34.052734375     C 28.337890625,36.888671875 26.576171875,38.7578125 23.955078125,38.7578125     C 21.35546875,38.7578125 19.59375,36.888671875 19.59375,34.052734375     Z " stroke-width="0.1"/></g></svg>encryption failed`
+   notiff$osund=new Audio(`static/funk.mp3`)
+   notiff$osund.play()
    await sleep(2100)
       alert(ngg)
    imim$NOTIFF$small.remove()
@@ -265,10 +329,15 @@ try{
    imim$NOTIFF$small.appendChild(imim$NOTIFF$small$inside)
    document.body.appendChild(imim$NOTIFF$small)
    imim$NOTIFF$small$inside.innerHTML=`<svg viewBox="0 0 55 55" direction="ltr" xmlns="http://www.w3.org/2000/svg" version="1.1"><g fill-rule="nonzero" transform="scale(1,-1) translate(0,-55.4296875)"><path fill="white" d="     M 13.70703125,34.93359375     C 13.70703125,39.552734375 16.134765625,41.958984375 20.75390625,41.958984375     L 39.939453125,41.958984375     L 39.939453125,43.849609375     C 39.939453125,47.416015625 38.02734375,49.37109375 34.41796875,49.37109375     L 11.0,49.37109375     C 7.390625,49.37109375 5.478515625,47.458984375 5.478515625,43.849609375     L 5.478515625,20.58203125     C 5.478515625,16.994140625 7.390625,15.08203125 11.0,15.08203125     L 13.70703125,15.08203125     Z     M 20.861328125,6.05859375     L 44.279296875,6.05859375     C 47.888671875,6.05859375 49.80078125,7.9921875 49.80078125,11.537109375     L 49.80078125,34.826171875     C 49.80078125,38.37109375 47.888671875,40.34765625 44.279296875,40.34765625     L 20.861328125,40.34765625     C 17.251953125,40.34765625 15.33984375,38.435546875 15.33984375,34.826171875     L 15.33984375,11.55859375     C 15.33984375,7.970703125 17.251953125,6.05859375 20.861328125,6.05859375     Z " stroke="white" fill-opacity="1" stroke-width="0"/></g></svg> key copied to your clipboard`
+   notiff$osund=new Audio(`static/funk.mp3`)
+   notiff$osund.play()
    await sleep(2100)
    imim$NOTIFF$small.remove()
 }
 catch(dih){
+   notiff$osund=new Audio(`static/payment_failure.mp3`)
+   notiff$osund.play()
+   alert("Error : ",dih)
    console.error("ERROR ",dih)
 }
 
@@ -286,6 +355,8 @@ document.querySelector(`[tromoSM=input-io-de]`).addEventListener('click',async f
    imim$NOTIFF$small.appendChild(imim$NOTIFF$small$inside)
    document.body.appendChild(imim$NOTIFF$small)
    imim$NOTIFF$small$inside.innerHTML=`<svg viewBox="0 0 47 52" direction="ltr" xmlns="http://www.w3.org/2000/svg" version="1.1"><g fill-rule="nonzero" transform="scale(1,-1) translate(0,-52.958984375)"><path fill="white" stroke="white" fill-opacity="1.0" d="     M 23.955078125,5.779296875     C 24.470703125,5.779296875 25.0078125,6.05859375 25.373046875,6.2734375     C 37.0390625,13.470703125 40.541015625,15.533203125 40.541015625,22.04296875     L 40.541015625,38.15625     C 40.541015625,40.541015625 39.9609375,41.3359375 37.662109375,42.216796875     C 33.55859375,43.763671875 29.60546875,45.41796875 25.501953125,46.857421875     C 24.943359375,47.05078125 24.4921875,47.1796875 23.955078125,47.1796875     C 23.439453125,47.1796875 22.98828125,47.05078125 22.4296875,46.857421875     C 18.34765625,45.310546875 14.3515625,43.763671875 10.26953125,42.216796875     C 7.970703125,41.37890625 7.390625,40.541015625 7.390625,38.15625     L 7.390625,22.04296875     C 7.390625,15.533203125 11.0,13.62109375 22.55859375,6.2734375     C 22.923828125,6.05859375 23.4609375,5.779296875 23.955078125,5.779296875     Z     M 16.091796875,19.228515625     L 16.091796875,28.294921875     C 16.091796875,30.078125 16.88671875,30.8515625 18.51953125,30.8515625     L 18.51953125,34.07421875     C 18.51953125,37.533203125 20.7109375,39.83203125 23.955078125,39.83203125     C 27.220703125,39.83203125 29.412109375,37.533203125 29.412109375,34.07421875     L 29.412109375,30.8515625     C 31.044921875,30.8515625 31.83984375,30.078125 31.83984375,28.294921875     L 31.83984375,19.228515625     C 31.83984375,17.4453125 31.044921875,16.671875 29.43359375,16.671875     L 18.498046875,16.671875     C 16.88671875,16.671875 16.091796875,17.4453125 16.091796875,19.228515625     Z     M 19.59375,30.8515625     L 28.337890625,30.8515625     L 28.337890625,34.052734375     C 28.337890625,36.888671875 26.576171875,38.7578125 23.955078125,38.7578125     C 21.35546875,38.7578125 19.59375,36.888671875 19.59375,34.052734375     Z " stroke-width="0.1"/></g></svg>decryption successful`
+   notiff$osund=new Audio(`static/pulse.mp3`)
+   notiff$osund.play()
    await sleep(2100)
    imim$NOTIFF$small.remove()
    }
@@ -299,6 +370,8 @@ document.querySelector(`[tromoSM=input-io-de]`).addEventListener('click',async f
    imim$NOTIFF$small$inside.style.color="#ff3535"
    document.body.appendChild(imim$NOTIFF$small)
    imim$NOTIFF$small$inside.innerHTML=`<svg viewBox="0 0 47 52" direction="ltr" xmlns="http://www.w3.org/2000/svg" version="1.1"><g fill-rule="nonzero" transform="scale(1,-1) translate(0,-52.958984375)"><path fill="#ff3535" stroke="#ff3535" fill-opacity="1.0" d="     M 23.955078125,5.779296875     C 24.470703125,5.779296875 25.0078125,6.05859375 25.373046875,6.2734375     C 37.0390625,13.470703125 40.541015625,15.533203125 40.541015625,22.04296875     L 40.541015625,38.15625     C 40.541015625,40.541015625 39.9609375,41.3359375 37.662109375,42.216796875     C 33.55859375,43.763671875 29.60546875,45.41796875 25.501953125,46.857421875     C 24.943359375,47.05078125 24.4921875,47.1796875 23.955078125,47.1796875     C 23.439453125,47.1796875 22.98828125,47.05078125 22.4296875,46.857421875     C 18.34765625,45.310546875 14.3515625,43.763671875 10.26953125,42.216796875     C 7.970703125,41.37890625 7.390625,40.541015625 7.390625,38.15625     L 7.390625,22.04296875     C 7.390625,15.533203125 11.0,13.62109375 22.55859375,6.2734375     C 22.923828125,6.05859375 23.4609375,5.779296875 23.955078125,5.779296875     Z     M 16.091796875,19.228515625     L 16.091796875,28.294921875     C 16.091796875,30.078125 16.88671875,30.8515625 18.51953125,30.8515625     L 18.51953125,34.07421875     C 18.51953125,37.533203125 20.7109375,39.83203125 23.955078125,39.83203125     C 27.220703125,39.83203125 29.412109375,37.533203125 29.412109375,34.07421875     L 29.412109375,30.8515625     C 31.044921875,30.8515625 31.83984375,30.078125 31.83984375,28.294921875     L 31.83984375,19.228515625     C 31.83984375,17.4453125 31.044921875,16.671875 29.43359375,16.671875     L 18.498046875,16.671875     C 16.88671875,16.671875 16.091796875,17.4453125 16.091796875,19.228515625     Z     M 19.59375,30.8515625     L 28.337890625,30.8515625     L 28.337890625,34.052734375     C 28.337890625,36.888671875 26.576171875,38.7578125 23.955078125,38.7578125     C 21.35546875,38.7578125 19.59375,36.888671875 19.59375,34.052734375     Z " stroke-width="0.1"/></g></svg>decryption failed`
+   notiff$osund=new Audio(`static/funk.mp3`)
+   notiff$osund.play()
    await sleep(2100)
    imim$NOTIFF$small.remove()
    }
@@ -319,6 +392,8 @@ document.querySelector(`[tromoSM=input-io-de]`).addEventListener('click',async f
   document.querySelectorAll(`[help]`).forEach(yo=>{
       yoo=yo.getAttribute('help')
       yo.addEventListener('click',function(){
+    notiff$osund=new Audio(`static/pulse.mp3`)
+   notiff$osund.play()
       if(yoo=="qr"){
          alert("Help\n\nYou can share the one time key via this qr by scaning this qr code saving you time when sharing this code to someone.")
       }
