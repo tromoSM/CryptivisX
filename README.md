@@ -24,3 +24,5 @@ No cloud, no uploads, everything stays on your machine.
 ### Installer (Recommended)
 1. Download the latest installer from [here](https://github.com/tromoSM/CryptivisX/releases/tag/v1).
 2. install
+>[!Tip]
+>If you encounter a permission error, please run the app as administrator.
