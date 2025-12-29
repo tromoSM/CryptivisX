@@ -613,7 +613,7 @@ p{
 
 }
 *{
-    font-family: SF Pro;
+    font-family: SF Pro,Segoe UI,Arial;
 }
 [tromoSM=title-large]{
     width:100%;
@@ -743,7 +743,7 @@ p{
 html,body{
     padding: 0;
     margin: 0;
-    font-family: SF Pro;
+    font-family: SF Pro,Segoe UI,Arial;
     background:var(--main-pg-bg);
     color: var(--main-el-color);
 }
